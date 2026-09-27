@@ -298,7 +298,7 @@
   </header>
   <main id="view-home">
     <section class="index" id="recipes" aria-label="Recipe index">
-      <div class="eyebrow">My vegan cookbook &middot; 8 recipes</div>
+      <div class="eyebrow">My vegan cookbook &middot; 9 recipes</div>
       <p style="margin:0; color:var(--muted); max-width:62ch;">Fusion cooking, blending primarily pan-Asian and Middle Eastern cuisines &mdash; all vegan, all written the way I actually cook them.</p>
       <div class="cards">
         <a class="card" href="#miso-black-beans">
@@ -348,6 +348,12 @@
           <h3>Moong Dal Dosa with Sundal</h3>
           <p>Crisp lentil dosas with warm spiced sundal alongside.</p>
           <span class="meta">Weekend cooking</span>
+        </a>
+        <a class="card" href="#spicy-moon-chili-oil">
+          <span class="tag">Experimental</span>
+          <h3>Spicy Moon Copycat Chili Oil</h3>
+          <p>Reverse-engineering the chili oil at Spicy Moon NYC &mdash; a dozen spices, one very satisfying sizzle.</p>
+          <span class="meta">Spicy Girl version</span>
         </a>
       </div>
     </section>
@@ -705,6 +711,48 @@
       </section>
     </div>
   </article>
+  <article class="recipe" id="view-spicy-moon-chili-oil">
+    <a class="backlink" href="#home">&larr; All recipes</a>
+    <div class="recipe-head">
+      <span class="tag" style="align-self:flex-start; background:var(--tint); color:var(--tint-ink); font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:3px;">Experimental</span>
+      <h1>Spicy Moon Copycat Chili Oil <span style="font-size:.6em; color:var(--muted);">(Spicy Girl version)</span></h1>
+      <p class="intro">My attempt to reverse-engineer the chili oil at Spicy Moon in New York: a whole-spice infusion strained clear, then poured sizzling over Sichuan chili powder and a small army of allium powders.</p>
+    </div>
+    <div class="recipe-body">
+      <section class="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li><label><input type="checkbox"><span><span class="qty">120 ml</span> avocado oil (&frac12; cup) &mdash; neutral, heat-tolerant base</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">10 g</span> Sichuan chili powder (about 2 tbsp), to your tolerance</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tbsp</span> Sichuan peppercorns, toasted and slightly crushed</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">2</span> whole star anise</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1</span> small cinnamon stick (2&ndash;3 cm)</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">2</span> bay leaves</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">2</span> white cardamom pods</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1</span> tsaoko (black cardamom) pod &mdash; optional but recommended for depth</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tsp</span> fennel seeds</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tbsp</span> sesame seeds (optional, for nutty aroma)</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tsp</span> ginger powder</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tsp</span> onion powder</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tsp</span> leek powder</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">1 tsp</span> scallion powder</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">&frac12; tsp</span> celery powder</span></label></li>
+          <li><label><input type="checkbox"><span><span class="qty">&frac12; tsp</span> ground coriander</span></label></li>
+        </ul>
+      </section>
+      <section class="method">
+        <h2>Method</h2>
+        <ol>
+          <li><p>Infuse the oil: gently heat the avocado oil in a small pot over medium-low. Add the Sichuan peppercorns, star anise, cinnamon, bay leaves, white cardamom, tsaoko, and fennel seeds, and let them infuse 15&ndash;20 minutes until fragrant. Don't let them burn.</p></li>
+          <li><p>Prepare the chili mix: in a heatproof bowl, combine the Sichuan chili powder, ginger powder, onion powder, leek powder, scallion powder, celery powder, coriander, and sesame seeds.</p></li>
+          <li><p>Strain and pour: strain the whole spices out of the oil, then immediately pour the hot oil over the chili mix. You should hear a sizzle &mdash; that's the point.</p></li>
+          <li><p>Stir well, cool to room temperature, and jar airtight.</p></li>
+        </ol>
+        <div class="cook-note"><strong>Note from my kitchen</strong>
+          Ultra-spicy version: bump the Sichuan chili powder to 15 g, and drop 1&ndash;2 dried Thai bird's-eye chilies into the infusion. Still experimental &mdash; the powder ratios are a work in progress.</div>
+      </section>
+    </div>
+  </article>
   <footer class="site">
     <span>&copy; 2026 Chris Walton</span>
     <a href="../index.html">chriswalton home</a>
@@ -719,7 +767,8 @@
     "red-pepper-bean-spread": "view-red-pepper-bean-spread",
     "sambal": "view-sambal",
     "chili-lime-drizzle": "view-chili-lime-drizzle",
-    "moong-dal-dosa": "view-moong-dal-dosa"
+    "moong-dal-dosa": "view-moong-dal-dosa",
+    "spicy-moon-chili-oil": "view-spicy-moon-chili-oil"
   };
   function route() {
     var hash = location.hash.replace("#", "");
