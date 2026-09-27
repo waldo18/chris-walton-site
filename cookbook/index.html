@@ -191,6 +191,16 @@
   .chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip { background: var(--tint); color: var(--tint-ink); font-size: .82rem; padding: 3px 10px; border-radius: 999px; }
 
+  .section-block { padding-block: 8px 44px; display: grid; gap: 18px; }
+  .recs { border-top: 1px dashed var(--line); padding-top: 14px; display: grid; gap: 8px; }
+  .recs h4 { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0; font-weight: 500; }
+  .recs ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+  .recs li { font-size: .93rem; color: var(--muted); }
+  .recs a { font-weight: 700; }
+  .teaser {
+    background: var(--card); border: 1px dashed var(--line); border-radius: 6px;
+    padding: 16px 20px; color: var(--muted); font-size: .95rem;
+  }
   /* Gallery */
   .gallery { padding-block: 8px 56px; display: grid; gap: 22px; }
   .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
@@ -296,45 +306,86 @@
       <a href="https://substack.com/@chriswalton143849" target="_blank" rel="noopener">Substack &#8599;</a>
     </nav>
   </header>
-  <main id="view-home">
-    <section class="index" id="recipes" aria-label="Recipe index">
+    <main id="view-home">
+    <section class="index" id="recipes" aria-label="Cookbook intro">
       <div class="eyebrow">My vegan cookbook &middot; 9 recipes</div>
       <p style="margin:0; color:var(--muted); max-width:62ch;">Fusion cooking, blending primarily pan-Asian and Middle Eastern cuisines &mdash; all vegan, all written the way I actually cook them.</p>
+    </section>
+
+    <section class="section-block" id="mezze">
+      <div class="eyebrow">Mezze &amp; spreads</div>
       <div class="cards">
-        <a class="card" href="#miso-black-beans">
-          <span class="tag">Mains</span>
-          <h3>Miso Black Beans with Seared Shiitake</h3>
-          <p>Black beans in a glossy miso sauce over seared shiitake. Rice mandatory.</p>
-          <span class="meta">Weeknight staple · serves 2</span>
-        </a>
         <a class="card" href="#falafel">
-          <span class="tag">Mains</span>
+          <span class="tag">Mezze</span>
           <h3>Falafel</h3>
-          <p>From dried chickpeas, never canned. Make a triple batch — you'll thank yourself.</p>
+          <p>From dried chickpeas, never canned. Make a triple batch &mdash; you'll thank yourself.</p>
           <span class="meta">Batch-cook project</span>
         </a>
         <a class="card" href="#muhammara">
-          <span class="tag">Dips &amp; spreads</span>
+          <span class="tag">Mezze</span>
           <h3>Muhammara</h3>
           <p>Charred peppers, walnuts, pomegranate molasses. The star of the mezze table.</p>
           <span class="meta">Mezze essential</span>
         </a>
         <a class="card" href="#harissa-lentil-spread">
-          <span class="tag">Dips &amp; spreads</span>
+          <span class="tag">Mezze</span>
           <h3>Harissa-Tahini Lentil &amp; Walnut Spread</h3>
           <p>Lentils, walnuts, and harissa with tahini and pomegranate molasses.</p>
           <span class="meta">Makes ~2 cups</span>
         </a>
         <a class="card" href="#red-pepper-bean-spread">
-          <span class="tag">Dips &amp; spreads</span>
+          <span class="tag">Mezze</span>
           <h3>Roasted Red Pepper &amp; White Bean Spread</h3>
           <p>Deep flavor, minimal effort. With pita, it's a full meal.</p>
-          <span class="meta">Dinner with pita · serves 2</span>
+          <span class="meta">Dinner with pita &middot; serves 2</span>
         </a>
+      </div>
+      <div class="recs">
+        <h4>Cooked on repeat &mdash; recommended</h4>
+        <ul>
+          <li><a href="https://www.themediterraneandish.com/foul-mudammas-recipe/" target="_blank" rel="noopener">Ful medames &#8599;</a> &mdash; The Mediterranean Dish. My tweaks: 1 tsp jalape&ntilde;o powder, 3 tbsp lemon juice, and I usually leave out the tomatoes.</li>
+          <li><a href="https://brokebankvegan.com/creamy-lebanese-garlic-sauce/" target="_blank" rel="noopener">Toum &#8599;</a> &mdash; Broke Bank Vegan. Creamy Lebanese garlic sauce; mandatory with the falafel.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block" id="ramens">
+      <div class="eyebrow">Ramens &amp; noodles</div>
+      <div class="teaser">The house miso corn ramen &mdash; the one in the photos below &mdash; hasn't been written down yet. It exists only in muscle memory and chili oil. Recipe coming.</div>
+      <div class="recs">
+        <h4>Cooked on repeat &mdash; recommended</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=U49inWOVc6c" target="_blank" rel="noopener">Vegan penne alla vodka &#8599;</a> &mdash; YouTube. My note: add a bit of vegan dashi and pumpkin pur&eacute;e.</li>
+          <li><a href="https://www.foxandbriar.com/the-best-thai-peanut-sauce-recipe/" target="_blank" rel="noopener">Thai peanut sauce &#8599;</a> &mdash; Fox and Briar. The noodle sauce I always come back to.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block" id="rice-dishes">
+      <div class="eyebrow">Rice dishes</div>
+      <div class="cards">
+        <a class="card" href="#miso-black-beans">
+          <span class="tag">Rice dishes</span>
+          <h3>Miso Black Beans with Seared Shiitake</h3>
+          <p>Black beans in a glossy miso sauce over seared shiitake. Rice mandatory.</p>
+          <span class="meta">Weeknight staple &middot; serves 2</span>
+        </a>
+        <a class="card" href="#moong-dal-dosa">
+          <span class="tag">Rice dishes</span>
+          <h3>Moong Dal Dosa with Sundal</h3>
+          <p>Crisp lentil dosas with warm spiced sundal. Technically a crepe; spiritually a rice dish.</p>
+          <span class="meta">Weekend cooking</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-block" id="condiments">
+      <div class="eyebrow">Condiments &amp; chili oils</div>
+      <div class="cards">
         <a class="card" href="#sambal">
           <span class="tag">Condiments</span>
           <h3>Vegan Sambal, My Version</h3>
-          <p>My take on WoonHeng's — bell pepper tames the burn, keeps the color.</p>
+          <p>My take on WoonHeng's &mdash; bell pepper tames the burn, keeps the color.</p>
           <span class="meta">Condiment shelf</span>
         </a>
         <a class="card" href="#chili-lime-drizzle">
@@ -343,12 +394,6 @@
           <p>Sweet, sour, hot. Wakes up rice bowls and anything grilled.</p>
           <span class="meta">Pour on everything</span>
         </a>
-        <a class="card" href="#moong-dal-dosa">
-          <span class="tag">Mains</span>
-          <h3>Moong Dal Dosa with Sundal</h3>
-          <p>Crisp lentil dosas with warm spiced sundal alongside.</p>
-          <span class="meta">Weekend cooking</span>
-        </a>
         <a class="card" href="#spicy-moon-chili-oil">
           <span class="tag">Experimental</span>
           <h3>Spicy Moon Copycat Chili Oil</h3>
@@ -356,19 +401,15 @@
           <span class="meta">Spicy Girl version</span>
         </a>
       </div>
-    </section>
-
-    <section class="thinking" id="links">
-      <div class="eyebrow">Cooked on repeat, from around the internet</div>
-      <div class="topics">
-        <div class="topic"><h3><a href="https://www.foxandbriar.com/the-best-thai-peanut-sauce-recipe/" target="_blank" rel="noopener">Thai peanut sauce &#8599;</a></h3><p>Fox and Briar. The one I always come back to.</p></div>
-        <div class="topic"><h3><a href="https://www.themediterraneandish.com/foul-mudammas-recipe/" target="_blank" rel="noopener">Ful medames &#8599;</a></h3><p>The Mediterranean Dish. My tweaks: 1 teaspoon jalape&ntilde;o powder, 3 tablespoons lemon juice, and I usually leave out the tomatoes.</p></div>
-        <div class="topic"><h3><a href="https://woonheng.com/easy-vegan-sambal/" target="_blank" rel="noopener">Easy vegan sambal &#8599;</a></h3><p>WoonHeng. The original my version above is built on.</p></div>
-        <div class="topic"><h3><a href="https://brokebankvegan.com/creamy-lebanese-garlic-sauce/" target="_blank" rel="noopener">Toum &#8599;</a></h3><p>Broke Bank Vegan. Creamy Lebanese garlic sauce; goes with the falafel.</p></div>
-        <div class="topic"><h3><a href="https://www.youtube.com/watch?v=oYz9GNg-8tw" target="_blank" rel="noopener">Next Level Chili Oil &#8599;</a></h3><p>YouTube. One of two chili oil videos in heavy rotation &mdash; the other is <a href="https://www.youtube.com/watch?v=ECnCL-TbLTY" target="_blank" rel="noopener">&ldquo;I Put This Chili Oil on EVERYTHING&rdquo; &#8599;</a>.</p></div>
-        <div class="topic"><h3><a href="https://www.youtube.com/watch?v=U49inWOVc6c" target="_blank" rel="noopener">Vegan penne alla vodka &#8599;</a></h3><p>YouTube. My note: add a bit of vegan dashi and pumpkin pur&eacute;e.</p></div>
+      <div class="recs">
+        <h4>Cooked on repeat &mdash; recommended</h4>
+        <ul>
+          <li><a href="https://woonheng.com/easy-vegan-sambal/" target="_blank" rel="noopener">Easy vegan sambal &#8599;</a> &mdash; WoonHeng. The original my version is built on.</li>
+          <li><a href="https://www.youtube.com/watch?v=oYz9GNg-8tw" target="_blank" rel="noopener">Next Level Chili Oil &#8599;</a> and <a href="https://www.youtube.com/watch?v=ECnCL-TbLTY" target="_blank" rel="noopener">&ldquo;I Put This Chili Oil on EVERYTHING&rdquo; &#8599;</a> &mdash; the two chili oil videos in heavy rotation.</li>
+        </ul>
       </div>
     </section>
+
     <section class="gallery" aria-label="Photos from my kitchen">
       <div class="eyebrow">From my kitchen</div>
       <div class="shots">
