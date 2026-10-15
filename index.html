@@ -78,20 +78,6 @@
     color: var(--muted); text-align: center; max-width: 52ch; line-height: 1.7;
   }
   .now .accent { color: var(--accent); }
-  .facts { width: 100%; max-width: 560px; margin-top: 38px; display: grid; gap: 16px; }
-  .facts h2 {
-    margin: 0; font-family: var(--mono); font-weight: 500; font-size: .74rem;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
-    display: flex; align-items: center; gap: 14px;
-  }
-  .facts h2::before, .facts h2::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
-  .facts dl {
-    margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 11px 18px;
-    text-align: left; font-size: .97rem;
-  }
-  .facts dt { font-family: var(--mono); font-size: .8rem; color: var(--accent); padding-top: 2px; }
-  .facts dd { margin: 0; color: var(--ink); }
-  @media (max-width: 480px) { .facts dl { grid-template-columns: 1fr; gap: 2px 0; } .facts dd { margin-bottom: 9px; color: var(--muted); } }
   footer.sign {
     margin-top: 34px; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
     color: var(--muted); text-align: center;
@@ -137,19 +123,6 @@
       </div>
     </a>
   </div>
-  <section class="facts">
-    <h2>A few facts</h2>
-    <dl>
-      <dt>reads</dt><dd>philosophy of science, ethics, anthropology &mdash; and a lot of Calvin and Hobbes</dd>
-      <dt>loves</dt><dd>yoga, almost every day &mdash; borderline evangelical about it</dd>
-      <dt>cooks</dt><dd>dumplings, ramens, khao soi, mezze &mdash; homemade sambal on nearly everything</dd>
-      <dt>moves</dt><dd>running, lifting, recently certified in massage</dd>
-      <dt>hosts</dt><dd>dinner parties and a Karl Popper discussion group</dd>
-      <dt>gives</dt><dd>took the 10% Pledge in 2025, aimed mostly at ending factory farming</dd>
-      <dt>roams</dt><dd>lived in 7 cities, traveled to 22 countries, conversational French</dd>
-      <dt>watches</dt><dd>Lynch, Miyazaki, the Coens &mdash; High Noon above all</dd>
-    </dl>
-  </section>
   <footer class="sign">made in new york &middot; fueled by chili oil, sambal &amp; good intentions</footer>
 </main>
 </body>
