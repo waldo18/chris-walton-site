@@ -78,7 +78,7 @@
     background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
     padding: 18px; box-shadow: 0 1px 4px rgba(30,20,40,.07);
   }
-  .feedback h2 { margin: 0 0 4px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+  .feedback h2 { margin: 0 0 12px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
   .feedback .fb-hint { margin: 0 0 12px; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
   .feedback form { display: flex; flex-direction: column; gap: 10px; }
   .feedback textarea {
@@ -141,7 +141,6 @@
   </div>
   <section class="feedback">
     <h2>Leave me anonymous feedback</h2>
-    <p class="fb-hint">Praise, gripes, typos, recipe requests &mdash; no name attached, I just get the words.</p>
     <form id="fb-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfwgWIW9HGA4vfle4caTSEVa1xSoNokwWeRG4W7qyUktPZN7A/formResponse" method="POST" target="fb-sink">
       <textarea name="entry.835181520" rows="3" maxlength="4000" required placeholder="say anything&hellip;" aria-label="Your anonymous feedback"></textarea>
       <button type="submit">submit</button>
