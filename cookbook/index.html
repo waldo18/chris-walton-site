@@ -290,6 +290,17 @@
     text-transform: uppercase; color: var(--muted); margin: 0 0 2px;
   }
   .fact dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .fact.scaler { flex: 0 0 auto; }
+  .scale-btns { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+  .scale-btns button {
+    font-family: var(--mono); font-size: .78rem; font-variant-numeric: tabular-nums;
+    padding: 3px 9px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--ground); color: var(--ink);
+  }
+  .scale-btns button:hover { border-color: var(--accent); color: var(--accent); }
+  .scale-btns button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .qty.scaled, .fact dd.scaled { color: var(--accent); }
+  @media print { .scale-btns button:not([aria-pressed="true"]) { display: none; } }
 
   .recipe-body { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 40px; align-items: start; }
   @media (max-width: 640px) { .recipe-body { grid-template-columns: 1fr; gap: 28px; } }
@@ -1091,6 +1102,63 @@
       card.style.display = (!t || name.indexOf(t) !== -1) ? "" : "none";
     });
   });
+
+  // Recipe scaling: 1x / 2x / 3x / 4x / 6x
+  (function () {
+    var FR = {"½":.5,"¼":.25,"¾":.75,"⅓":1/3,"⅔":2/3,"⅛":.125};
+    var NUM = "(\\d+(?:\\.\\d+)?)?\\s*([½¼¾⅓⅔⅛])?";
+    var RE = new RegExp("^(about\\s+)?" + NUM + "(?:\\s*[–-]\\s*" + NUM + ")?");
+    function val(w, f) { if (!w && !f) return null; return (w ? parseFloat(w) : 0) + (f ? FR[f] : 0); }
+    function fmt(n) {
+      if (n >= 20) return String(Math.round(n));
+      var whole = Math.floor(n), rem = n - whole, best = ["", 0], d = 1;
+      [["",0],["¼",.25],["⅓",1/3],["½",.5],["⅔",2/3],["¾",.75],["",1]].forEach(function (c) {
+        var e = Math.abs(rem - c[1]); if (e < d) { d = e; best = c; }
+      });
+      if (best[1] === 1) { whole += 1; best = ["", 0]; }
+      return (whole ? String(whole) : (best[0] ? "" : "0")) + best[0];
+    }
+    function parse(el) {
+      var t = el.textContent, m = t.match(RE);
+      if (!m || !m[0].trim() || (m[2] == null && m[3] == null)) return null;
+      return { pre: m[1] || "", a: val(m[2], m[3]), b: val(m[4], m[5]), rest: t.slice(m[0].length), orig: t };
+    }
+    document.querySelectorAll("article.recipe").forEach(function (rec) {
+      var items = [];
+      rec.querySelectorAll(".ingredients .qty").forEach(function (el) { var p = parse(el); if (p) items.push([el, p]); });
+      if (!items.length) return;
+      var facts = rec.querySelector("dl.facts");
+      if (!facts) {
+        facts = document.createElement("dl"); facts.className = "facts";
+        rec.insertBefore(facts, rec.querySelector(".recipe-body"));
+      }
+      facts.querySelectorAll(".fact").forEach(function (f) {
+        var dt = f.querySelector("dt"), dd = f.querySelector("dd");
+        if (dt && /base batch/i.test(dt.textContent)) return;
+        var p = dd && parse(dd); if (p) items.push([dd, p]);
+      });
+      var box = document.createElement("div"); box.className = "fact scaler";
+      box.innerHTML = '<dt>Batch size</dt><dd class="scale-btns" role="group" aria-label="Batch size"></dd>';
+      var btns = box.querySelector(".scale-btns");
+      [1, 2, 3, 4, 6].forEach(function (k) {
+        var b = document.createElement("button"); b.type = "button"; b.textContent = k + "×";
+        b.setAttribute("aria-pressed", k === 1 ? "true" : "false");
+        b.addEventListener("click", function () {
+          btns.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+          items.forEach(function (it) {
+            var el = it[0], p = it[1];
+            if (k === 1) { el.textContent = p.orig; el.classList.remove("scaled"); return; }
+            var rest = p.rest;
+            if (p.a <= 1 && p.b == null) rest = rest.replace(/^(\s*)(cup|can|pinch|bunch|clove)\b/, function (_, sp, u) { return sp + u + (/(ch)$/.test(u) ? "es" : "s"); });
+            el.textContent = p.pre + fmt(p.a * k) + (p.b != null ? "–" + fmt(p.b * k) : "") + rest;
+            el.classList.add("scaled");
+          });
+        });
+        btns.appendChild(b);
+      });
+      facts.appendChild(box);
+    });
+  })();
 </script>
 </body>
 </html>
