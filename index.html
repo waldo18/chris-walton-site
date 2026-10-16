@@ -73,6 +73,28 @@
   .card p { margin: 0; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
   .card.compact .card-body { padding: 18px; }
   .card.featured h2 { color: var(--accent); }
+  .feedback {
+    width: 100%; box-sizing: border-box; text-align: left; margin-top: 8px;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 18px; box-shadow: 0 1px 4px rgba(30,20,40,.07);
+  }
+  .feedback h2 { margin: 0 0 4px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+  .feedback .fb-hint { margin: 0 0 12px; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
+  .feedback form { display: flex; flex-direction: column; gap: 10px; }
+  .feedback textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; min-height: 76px;
+    background: var(--ground); color: var(--ink); border: 1.5px solid var(--line);
+    border-radius: 10px; padding: 10px 12px; font-family: var(--mono); font-size: .82rem; line-height: 1.55;
+  }
+  .feedback textarea::placeholder { color: var(--muted); }
+  .feedback textarea:focus { border-color: var(--accent); outline: none; }
+  .feedback button {
+    align-self: flex-end; cursor: pointer; border: none; border-radius: 999px;
+    background: var(--accent); color: var(--accent-ink); font-family: var(--mono);
+    font-size: .78rem; letter-spacing: .04em; padding: 9px 18px;
+  }
+  .feedback button:hover { filter: brightness(1.07); }
+  .fb-thanks { margin: 0; font-family: var(--mono); font-size: .82rem; line-height: 1.55; color: var(--leaf); }
   footer.sign {
     margin-top: 34px; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
     color: var(--muted); text-align: center;
@@ -117,7 +139,29 @@
       </div>
     </a>
   </div>
+  <section class="feedback">
+    <h2>Anonymous suggestion box</h2>
+    <p class="fb-hint">Praise, gripes, typos, recipe requests &mdash; no name attached, I just get the words.</p>
+    <form id="fb-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfwgWIW9HGA4vfle4caTSEVa1xSoNokwWeRG4W7qyUktPZN7A/formResponse" method="POST" target="fb-sink">
+      <textarea name="entry.835181520" rows="3" maxlength="4000" required placeholder="say anything&hellip;" aria-label="Your anonymous feedback"></textarea>
+      <button type="submit">send it into the void</button>
+    </form>
+    <p class="fb-thanks" hidden>Received. Thank you, mysterious stranger. &#127812;</p>
+    <iframe name="fb-sink" title="hidden submission target" hidden></iframe>
+  </section>
   <footer class="sign">made in new york &middot; fueled by chili oil, sambal &amp; good intentions</footer>
 </main>
+<script>
+  (function () {
+    var form = document.getElementById('fb-form');
+    var thanks = document.querySelector('.fb-thanks');
+    form.addEventListener('submit', function () {
+      setTimeout(function () {
+        form.hidden = true;
+        thanks.hidden = false;
+      }, 400);
+    });
+  })();
+</script>
 </body>
 </html>
