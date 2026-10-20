@@ -73,6 +73,33 @@
   .card p { margin: 0; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
   .card.compact .card-body { padding: 18px; }
   .card.featured h2 { color: var(--accent); }
+  .listening {
+    width: 100%; box-sizing: border-box; text-align: left; margin-top: 8px;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 18px; box-shadow: 0 1px 4px rgba(30,20,40,.07);
+  }
+  .listening h2 { margin: 0 0 10px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+  .listening .listen-note { margin: 0 0 12px; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
+  .listening .listen-note a { color: var(--accent); font-weight: 500; }
+  .tracks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .tracks li { font-family: var(--mono); font-size: .8rem; line-height: 1.5; }
+  .tracks a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--line); }
+  .tracks a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .tracks .artist { color: var(--muted); }
+  .coffee {
+    width: 100%; box-sizing: border-box; text-align: left; margin-top: 8px;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 18px; box-shadow: 0 1px 4px rgba(30,20,40,.07);
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  }
+  .coffee .coffee-text h2 { margin: 0 0 4px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+  .coffee .coffee-text p { margin: 0; font-family: var(--mono); font-size: .78rem; line-height: 1.55; color: var(--muted); }
+  .btn-coffee {
+    flex: none; text-decoration: none; border-radius: 999px;
+    background: var(--accent); color: var(--accent-ink); font-family: var(--mono);
+    font-size: .78rem; letter-spacing: .04em; padding: 9px 18px;
+  }
+  .btn-coffee:hover { filter: brightness(1.07); }
   .feedback {
     width: 100%; box-sizing: border-box; text-align: left; margin-top: 8px;
     background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
@@ -137,6 +164,24 @@
       </div>
     </a>
   </div>
+  <section class="listening">
+    <h2>What I'm listening to</h2>
+    <p class="listen-note">The current playlist is <a href="https://open.spotify.com/playlist/3UjONjg0H11NkvfXCiIDGi" target="_blank" rel="noopener">nyc 5 &#8599;</a> &mdash; and lately on Spotify it's been a lot of this:</p>
+    <ul class="tracks">
+      <li><a href="https://open.spotify.com/track/7H0ya83CMmgFcOhw0UB6ow" target="_blank" rel="noopener">Space Song</a> <span class="artist">&mdash; Beach House</span></li>
+      <li><a href="https://open.spotify.com/track/2JLHbthXlqpJG3iuHZFtTi" target="_blank" rel="noopener">You Don't Know Me</a> <span class="artist">&mdash; SOJA</span></li>
+      <li><a href="https://open.spotify.com/track/3Kgg6qCVCH7pKOqMYjrWgQ" target="_blank" rel="noopener">JENOVA</a> <span class="artist">&mdash; Nobuo Uematsu, Final Fantasy VII OST</span></li>
+      <li><a href="https://open.spotify.com/track/3VjoyHJtDmzJIukPdMcCSc" target="_blank" rel="noopener">Kingdom Trial</a> <span class="artist">&mdash; Yasunori Mitsuda, Chrono Trigger OST</span></li>
+      <li><a href="https://open.spotify.com/track/2ww9a9ZlONVGmZLE9u8IHs" target="_blank" rel="noopener">Treetop Rock</a> <span class="artist">&mdash; Donkey Kong Country</span></li>
+    </ul>
+  </section>
+  <section class="coffee">
+    <div class="coffee-text">
+      <h2>Get coffee with me</h2>
+      <p>30 minutes, in NYC or online &mdash; animal advocacy, cooking, philosophy, or whatever you'd like.</p>
+    </div>
+    <a class="btn-coffee" href="https://docs.google.com/forms/d/e/1FAIpQLSfeTnj8gl0B50LNIvr1aLaMN42s3CAw5PD8QeYAtzr7UHNjvg/viewform" target="_blank" rel="noopener">Request a coffee &#8599;</a>
+  </section>
   <section class="feedback">
     <h2>Leave me anonymous feedback</h2>
     <form id="fb-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfwgWIW9HGA4vfle4caTSEVa1xSoNokwWeRG4W7qyUktPZN7A/formResponse" method="POST" target="fb-sink">
