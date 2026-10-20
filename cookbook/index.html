@@ -8,44 +8,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root {
-    --ground: #F3ECDE;
-    --card: #FBF6EB;
-    --ink: #2C2231;
-    --muted: #6E6172;
-    --accent: #C4567E;
-    --accent-ink: #FFF3F6;
-    --line: #DCD1BE;
-    --tint: #EDE0C6;
-    --tint-ink: #75521F;
+    --ground: #1C1611;
+    --card: #26201A;
+    --ink: #F0E8DA;
+    --muted: #A99C8B;
+    --accent: #E4572E;
+    --accent-ink: #FFEFE6;
+    --line: #3B332A;
+    --tint: #33291F;
+    --tint-ink: #D8BD92;
+    color-scheme: dark;
     --display: "Young Serif", "Iowan Old Style", Georgia, serif;
     --body: "Karla", "Helvetica Neue", Arial, sans-serif;
     --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #191521;
-      --card: #231D2E;
-      --ink: #EFE7D8;
-      --muted: #A79DB0;
-      --accent: #F08CA8;
-      --accent-ink: #2A1118;
-      --line: #383046;
-      --tint: #2E2740;
-      --tint-ink: #CFBC93;
-      color-scheme: dark;
+  @media print {
+    :root {
+      --ground: #ffffff; --card: #ffffff; --ink: #1C1611; --muted: #55493C;
+      --accent: #B3471F; --accent-ink: #ffffff; --line: #C9BEB0;
+      --tint: #F0E6D4; --tint-ink: #6B4F1E;
+      color-scheme: light;
     }
-  }
-  :root[data-theme="dark"] {
-    --ground: #191521;
-    --card: #231D2E;
-    --ink: #EFE7D8;
-    --muted: #A79DB0;
-    --accent: #F08CA8;
-    --accent-ink: #2A1118;
-    --line: #383046;
-    --tint: #2E2740;
-    --tint-ink: #CFBC93;
-    color-scheme: dark;
   }
 
   body {
